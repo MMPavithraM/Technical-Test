@@ -8,8 +8,8 @@ public class LoginPage {
     private By usernameField = By.xpath("//input[@id=\"form-input-live-u\"]");
     private By passwordField = By.xpath("//input[@id=\"form-input-live-p\"]");
     private By loginButton = By.xpath("//button[@class=\"btn btn-primary btn-block mb-3\"]");
-    private By noInputStatusError = By.id("Need to replace");
-    private By randomInputStatusError = By.id("Need to replace");
+    private By errorStatusAlert = By.xpath("//div[@class=\"login_error_msg ng-star-inserted\"]");
+    
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
@@ -31,11 +31,11 @@ public class LoginPage {
     }
 
     public String getErrorTextNoInput(){
-        return driver.findElement(noInputStatusError).getText();
+        return driver.findElement(errorStatusAlert).getText();
     }
 
     public String getErrorTextRandomInput(){
-        return driver.findElement(randomInputStatusError).getText();
+        return driver.findElement(errorStatusAlert).getText();
     }
 }
 
